@@ -9,8 +9,6 @@ pipeline {
     stage('Install') {
       steps {
         sh 'npm install'
-        sh 'npm run build'
-        archiveArtifacts 'dist/**/*'
       }
     }
 
