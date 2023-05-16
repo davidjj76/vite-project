@@ -6,11 +6,33 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
+    stage('Install') {
       steps {
         sh 'npm install'
-        sh 'npm run lint'
         sh 'npm run build'
+        archiveArtifacts 'dist/**/*'
+      }
+    }
+
+    stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'npm run build'
+          }
+        }
+
+        stage('Lint') {
+          steps {
+            sh 'npm run lint'
+          }
+        }
+
+      }
+    }
+
+    stage('Save') {
+      steps {
         archiveArtifacts 'dist/**/*'
       }
     }
