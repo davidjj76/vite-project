@@ -1,14 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts' 
-        }
+  agent {
+    docker {
+      image 'node:lts'
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
+
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
     }
+
+  }
 }
