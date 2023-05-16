@@ -13,14 +13,14 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                sh './jenkins/scripts/lint.sh'
+                sh './ci/scripts/lint.sh'
             }
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                sh './ci/scripts/deliver.sh' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
+                sh './ci/scripts/kill.sh' 
             }
         }
     }
