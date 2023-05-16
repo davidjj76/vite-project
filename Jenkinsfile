@@ -11,7 +11,7 @@ pipeline {
         sh 'npm install'
         sh 'npm run lint'
         sh 'npm run build'
-        archiveArtifacts 'dist/*, dist/assets/*'
+        archiveArtifacts 'dist/**/*'
       }
     }
 
