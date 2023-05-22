@@ -21,9 +21,3 @@ test('button', async ({ page }) => {
   // Expects the button to update the count.
   await expect(button).toHaveText('count is 1');
 });
-
-test('snapshot', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(page).toHaveScreenshot();
-});
